@@ -1,0 +1,20 @@
+{
+  "name": "in-memory-account-ledger",
+  "version": "1.0.0",
+  "private": true,
+  "description": "An append-only six-day account ledger with exact money arithmetic and auditable decisions",
+  "type": "module",
+  "engines": { "node": ">=22.18.0" },
+  "scripts": {
+    "start": "node src/cli.ts",
+    "replay": "node src/cli.ts",
+    "replay:json": "node src/cli.ts --json",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc --noEmit false --allowImportingTsExtensions false --rewriteRelativeImportExtensions",
+    "test": "node --test test/*.test.ts",
+    "test:known-limit": "node --test examples/known-limit.test.ts",
+    "check:known-limit": "node scripts/check-known-limit.ts",
+    "verify": "npm run typecheck && npm test && npm run check:known-limit && npm run build"
+  },
+  "devDependencies": { "@types/node": "24.10.4", "typescript": "5.9.3" }
+}
