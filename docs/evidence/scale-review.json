@@ -1,0 +1,109 @@
+{
+  "timestamp": "2026-10-07T01:06:26.698Z",
+  "node": "v25.3.0",
+  "platform": "darwin",
+  "architecture": "arm64",
+  "trials": 7,
+  "warmupsPerSize": 1,
+  "workload": "Unique AED 1.00 credits on booked/value Day 6; two accounts, six-day horizon; event construction, GC and report serialization outside timing; constructor + ingest + finish timed",
+  "results": [
+    {
+      "count": 10,
+      "medianMs": 0.19241700000000606,
+      "samples": [
+        {
+          "milliseconds": 0.2740000000000009,
+          "entries": 12,
+          "decisions": 10,
+          "final": "1000"
+        },
+        {
+          "milliseconds": 0.19058300000000372,
+          "entries": 12,
+          "decisions": 10,
+          "final": "1000"
+        },
+        {
+          "milliseconds": 0.26891699999998764,
+          "entries": 12,
+          "decisions": 10,
+          "final": "1000"
+        },
+        {
+          "milliseconds": 0.19095799999999485,
+          "entries": 12,
+          "decisions": 10,
+          "final": "1000"
+        },
+        {
+          "milliseconds": 0.19241700000000606,
+          "entries": 12,
+          "decisions": 10,
+          "final": "1000"
+        },
+        {
+          "milliseconds": 0.22837499999999977,
+          "entries": 12,
+          "decisions": 10,
+          "final": "1000"
+        },
+        {
+          "milliseconds": 0.17574999999999363,
+          "entries": 12,
+          "decisions": 10,
+          "final": "1000"
+        }
+      ],
+      "completed": true
+    },
+    {
+      "count": 1000,
+      "medianMs": 46.71016700000001,
+      "samples": [
+        {
+          "milliseconds": 47.333624999999984,
+          "entries": 1002,
+          "decisions": 1000,
+          "final": "100040"
+        },
+        {
+          "milliseconds": 46.61020800000003,
+          "entries": 1002,
+          "decisions": 1000,
+          "final": "100040"
+        },
+        {
+          "milliseconds": 46.71016700000001,
+          "entries": 1002,
+          "decisions": 1000,
+          "final": "100040"
+        },
+        {
+          "milliseconds": 46.56154200000003,
+          "entries": 1002,
+          "decisions": 1000,
+          "final": "100040"
+        },
+        {
+          "milliseconds": 47.50829200000004,
+          "entries": 1002,
+          "decisions": 1000,
+          "final": "100040"
+        },
+        {
+          "milliseconds": 46.080291999999986,
+          "entries": 1002,
+          "decisions": 1000,
+          "final": "100040"
+        },
+        {
+          "milliseconds": 47.76729199999994,
+          "entries": 1002,
+          "decisions": 1000,
+          "final": "100040"
+        }
+      ],
+      "completed": true
+    }
+  ]
+}

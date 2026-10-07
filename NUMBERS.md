@@ -134,3 +134,25 @@ accurate. The core derives them from postings.
 - Other expected test values (`1000n`, `−334n`, `−333n`, `−4500n`, `−15001n`,
   etc.) are exact consequences of those fixtures, not additional parameters.
   No test uses random seeds or timing thresholds.
+
+## Part 2 measurement constants
+
+The optional scale probe uses **10 and 1,000 events** to express the requested
+**100x** volume comparison at fixed account and window dimensions. Halving both
+sizes would preserve the ratio but no longer anchor the baseline to the ten-event
+exercise; the synthetic credits intentionally isolate a simple ingestion path
+rather than claim to reproduce the full assignment's workload mix.
+
+Each synthetic credit is **AED 1.00** on **Day 6**. A unit amount is easy to audit;
+halving it changes balances but not the intended scan-cost probe. The last day
+ensures five days are already closed so catch-up scans execute. Day 3 would test
+fewer closed days. **One** warm-up per size avoids making the first cold run the
+only evidence; **seven** measured runs give a small odd-sized sample with a
+defined median, not a statistical latency guarantee. Half a run is meaningless;
+fewer runs give less evidence. These choices are explicitly not calibrated for
+capacity planning. Raw observed medians are retained, not rounded into targets.
+
+The architecture's **five-year minimum** retention reference comes from Cabinet
+Resolution 134/2025, Article 25; it is neither a configured deletion timer nor a
+chosen application constant. The applicable trigger and any longer hold must be
+resolved per record class. Halving a statutory minimum would not be compliant.

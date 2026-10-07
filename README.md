@@ -111,7 +111,8 @@ from zero. Interest uses the exact rational rate `1 / 2500`, rounded once at the
 aggregate level; largest-remainder allocation reconciles daily amounts.
 
 The only state changes to the audit history are array appends. Entries, event
-decisions, snapshots, and nested report records are frozen. Authorization status
+decisions, snapshots, and nested core projection records are frozen. Serialized
+report objects are detached output copies, not a protected audit store. Authorization status
 is a fresh projection over decisions; changing a projection does not rewrite a
 source event. A reversal adds inverse principal postings linked to the originals.
 
@@ -158,3 +159,12 @@ See [AMBIGUITIES.md](AMBIGUITIES.md) for their rationale and alternatives.
 
 Commits are chronological implementation stages, not a retrospectively created
 or squashed history. Review with `git log --oneline --reverse`.
+
+## Architecture and evaluation review
+
+- [Architecture & Trade-offs PDF](output/pdf/architecture-and-tradeoffs.pdf)
+  (four pages), with [editable Markdown](docs/ARCHITECTURE.md).
+- [Part 1 evaluation review](docs/PART1_REVIEW.md): evidence against the supplied
+  criteria, policy risks, limits of the tests, and unaided-defense preparation.
+- [Scale-probe evidence](docs/evidence/scale-review.json). Reproduce with
+  `node --expose-gc scripts/benchmark-scale.ts`; timings are machine-dependent.

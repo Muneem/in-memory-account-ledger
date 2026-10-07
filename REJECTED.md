@@ -96,9 +96,6 @@ and records every unit. BHD interest is 0.004 on each of Days 5 and 6: 0.008 tot
   `assessment:1`. Before the core commit, matching was restricted to CREDIT and
   DEBIT posting kinds. A regression test reverses a three-part credit using
   that source ID and proves the fee is retained.
-- **Requiring only decimal examples to validate arithmetic.** Replaced with
-  conservation checks across many values and exact rational boundary tests,
-  plus manually derived end-to-end balances; individual examples miss residuals.
 - **Offline dependency installation.** Attempted against the available npm
   cache; package metadata was incomplete. Switched to a real install of pinned
   development dependencies and committed the resulting lockfile.
@@ -108,6 +105,9 @@ implemented-and-removed code:
 
 - Sorting E10 before E9 would violate the explicit input sequence.
 - Binary floating point would risk precision loss and rounding drift.
+- Example-only arithmetic testing would miss residual cases. The money tests
+  included conservation and boundary checks from their first committed version;
+  this was a testing strategy choice, not an abandoned implementation.
 - Mutating original entries or deleting E7 would destroy the required history.
 - Independently rounding daily interest would produce 0.93 against a 0.92 total.
 - Posting three rounded-up thirds would create money.
