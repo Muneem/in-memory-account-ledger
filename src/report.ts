@@ -1,10 +1,10 @@
 import { formatMoney } from './money.ts';
-import type { Ledger } from './ledger.ts';
+import { WINDOW_DAYS, type Ledger } from './ledger.ts';
 
 export function createReport(ledger: Ledger) {
   if (!ledger.finalized) throw new Error('Finish the replay before generating the report');
   return {
-    window: { firstDay: 1, lastDay: 6 },
+    window: { firstDay: 1, lastDay: WINDOW_DAYS },
     conventions: {
       amounts: 'Decimal currency strings, not floating-point numbers',
       daily: 'Immutable snapshots as known at each close; Day 6 includes capitalization',
@@ -25,7 +25,7 @@ export function createReport(ledger: Ledger) {
         amount: formatMoney(auth.amount, auth.currency), remaining: formatMoney(auth.remaining, auth.currency) })),
       errors: snapshot.errors.map(error => ({ eventId: error.event.id, code: error.code, message: error.message })),
     })),
-    restated: Array.from({ length: 6 }, (_, index) => ({ day: index + 1,
+    restated: Array.from({ length: WINDOW_DAYS }, (_, index) => ({ day: index + 1,
       accounts: ledger.accounts.map(account => ({ accountId: account.id, currency: account.currency,
         closingBalance: formatMoney(ledger.balance(account.id, index + 1), account.currency) })) })),
     interest: ledger.interest.map(result => ({ accountId: result.accountId, currency: result.currency,
